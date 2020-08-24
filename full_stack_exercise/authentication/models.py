@@ -18,5 +18,10 @@ class Role(models.Model):
 
 
 class CustomUser(AbstractUser):
+    USER_ROLE_CHOICES = (
+        (1, 'user'),
+        (2, 'admin'),
+    )
+
+    role = models.PositiveSmallIntegerField(choices=USER_ROLE_CHOICES)
     SSN = USSocialSecurityNumberField()
-    roles = models.ManyToManyField(Role)

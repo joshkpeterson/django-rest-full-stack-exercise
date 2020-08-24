@@ -13,7 +13,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'password', 'firstName', 'lastName', 'role', 'SSN')
+        fields = ('username', 'password', 'first_name', 'last_name', 'role', 'SSN')
         extra_kwargs = {'password': {'write_only': True}, 'SSN': {'write_only': True}}
 
     def create(self, validated_data):
@@ -23,3 +23,11 @@ class CustomUserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+    # def get_token(self, object):
+    #     jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
+    #     jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
+
+    #     payload = jwt_payload_handler(object)
+    #     token = jwt_encode_handler(payload)
+    #     return token
