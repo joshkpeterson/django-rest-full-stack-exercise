@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'uploads_app',
     'authentication',
+    'localflavor',
 ]
 
 MIDDLEWARE = [

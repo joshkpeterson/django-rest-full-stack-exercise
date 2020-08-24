@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from localflavor.us.forms import USSocialSecurityNumberField
 
 
 class Role(models.Model):
@@ -17,5 +18,5 @@ class Role(models.Model):
 
 
 class CustomUser(AbstractUser):
-    # SSN = USSocialSecurityNumberField()
+    SSN = USSocialSecurityNumberField()
     roles = models.ManyToManyField(Role)
