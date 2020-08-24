@@ -8,7 +8,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(min_length=8, write_only=True)
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
-    role = serializers.IntegerField(required=True)
+    role = serializers.ChoiceField(choices=CustomUser.UserRoles, required=True)
     SSN = serializers.CharField(required=True, write_only=True)
 
     class Meta:
