@@ -24,4 +24,5 @@ class CustomUser(AbstractUser):
     )
 
     role = models.PositiveSmallIntegerField(choices=USER_ROLE_CHOICES)
-    SSN = USSocialSecurityNumberField()
+    SSN = models.CharField(max_length=11, validators = [USSocialSecurityNumberField.clean])
+
